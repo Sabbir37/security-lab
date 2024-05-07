@@ -22,3 +22,29 @@ Output File: [cipher_aes_128_cfb.bin](https://github.com/Sabbir37/security-lab/b
 
 Output File: [cipher_aes_256_cbc.bin](https://github.com/Sabbir37/security-lab/blob/main/lab-3/task-01/cipher_aes_256_cbc.bin)
 
+
+
+## Task – 2: Encryption mode - ECB vs CBC
+
+### Commands
+
+	openssl enc -aes-256-ecb -e -in sample.bmp -out sample_aes_256_ecb.bmp -K 00112233445566778889aabbccddeeff
+	openssl enc -aes-256-cbc -e -in sample.bmp -out sample_aes_256_cbc.bmp -K 00112233445566778889aabbccddeeff -iv 0102030405060708
+
+
+### Observations
+
+* ECB Mode
+	-Upon viewing the encrypted image (encrypted_ecb.bmp), it appears as random noise or patterns with no discernible features.
+	-No identifiable structures or patterns from the original picture are visible.
+	-Each block of the image seems to be encrypted independently, leading to a lack of correlation between adjacent blocks.
+* CBC Mode
+	- The encrypted image (encrypted_cbc.bmp) also displays as random noise or patterns, similar to the ECB mode.
+	- However, the patterns may appear slightly different due to the chaining effect where each block is XORed with the previous ciphertext block before encryption.
+	- Like ECB, no meaningful information about the original picture can be derived from the encrypted image.
+
+
+### Conclusion
+* The encrypted images, both in ECB and CBC modes, exhibit characteristics of strong encryption.
+* Without the decryption key, it is impossible to recover any meaningful information about the original picture from the encrypted images.
+* Encryption serves as a vital tool for protecting sensitive information and maintaining confidentiality, as demonstrated by the inability to discern any details from the encrypted images.
