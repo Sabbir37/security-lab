@@ -35,9 +35,9 @@ Output File: [cipher_aes_256_cbc.bin](https://github.com/Sabbir37/security-lab/b
 ### Observations
 
 * ECB Mode
-	-Upon viewing the encrypted image (encrypted_ecb.bmp), it appears as random noise or patterns with no discernible features.
-	-No identifiable structures or patterns from the original picture are visible.
-	-Each block of the image seems to be encrypted independently, leading to a lack of correlation between adjacent blocks.
+	- Upon viewing the encrypted image (encrypted_ecb.bmp), it appears as random noise or patterns with no discernible features.
+	- No identifiable structures or patterns from the original picture are visible.
+	- Each block of the image seems to be encrypted independently, leading to a lack of correlation between adjacent blocks.
 * CBC Mode
 	- The encrypted image (encrypted_cbc.bmp) also displays as random noise or patterns, similar to the ECB mode.
 	- However, the patterns may appear slightly different due to the chaining effect where each block is XORed with the previous ciphertext block before encryption.
