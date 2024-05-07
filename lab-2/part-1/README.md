@@ -2,7 +2,6 @@
 
 ## Code
 
-This is the cod:
 
 ```cpp
 #include<bits/stdc++.h>
