@@ -48,3 +48,10 @@ Output File: [cipher_aes_256_cbc.bin](https://github.com/Sabbir37/security-lab/b
 * The encrypted images, both in ECB and CBC modes, exhibit characteristics of strong encryption.
 * Without the decryption key, it is impossible to recover any meaningful information about the original picture from the encrypted images.
 * Encryption serves as a vital tool for protecting sensitive information and maintaining confidentiality, as demonstrated by the inability to discern any details from the encrypted images.
+
+### Attachments
+
+Raw Image: [sample.bmp](https://github.com/Sabbir37/security-lab/blob/main/lab-3/task-02/sample.bmp)
+Encrypted Image (ECB Mode): [encrypted_ecb.bmp](https://github.com/Sabbir37/security-lab/blob/main/lab-3/task-02/sample_aes_256_ecb.bmp)
+Encrypted Image (CBC Mode): [encrypted_cbc.bmp](https://github.com/Sabbir37/security-lab/blob/main/lab-3/task-02/sample_aes_256_cbc.bmp)
+
