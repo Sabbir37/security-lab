@@ -52,6 +52,20 @@ Output File: [cipher_aes_256_cbc.bin](https://github.com/Sabbir37/security-lab/b
 ### Attachments
 
 Raw Image: [sample.bmp](https://github.com/Sabbir37/security-lab/blob/main/lab-3/task-02/sample.bmp)
+
 Encrypted Image (ECB Mode): [encrypted_ecb.bmp](https://github.com/Sabbir37/security-lab/blob/main/lab-3/task-02/sample_aes_256_ecb.bmp)
+
 Encrypted Image (CBC Mode): [encrypted_cbc.bmp](https://github.com/Sabbir37/security-lab/blob/main/lab-3/task-02/sample_aes_256_cbc.bmp)
 
+
+
+
+## Task – 3: Encryption mode – corrupted cipher text
+
+- The amount of recoverable information from a corrupted ciphertext depends on the encryption mode used.
+- ECB mode offers minimal error diffusion and recovery capabilities, resulting in limited recoverable information.
+- CBC mode provides better error diffusion and recovery compared to ECB mode.
+- CFB and OFB modes offer superior error correction and isolation capabilities, resulting in potentially higher recoverable information from corrupted ciphertexts.
+
+### Attachments
+[Click here...](
