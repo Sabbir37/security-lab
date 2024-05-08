@@ -68,4 +68,5 @@ Encrypted Image (CBC Mode): [encrypted_cbc.bmp](https://github.com/Sabbir37/secu
 - CFB and OFB modes offer superior error correction and isolation capabilities, resulting in potentially higher recoverable information from corrupted ciphertexts.
 
 ### Attachments
-[Click here...](
+[Click here...](https://github.com/Sabbir37/security-lab/tree/main/lab-3/task-03)
+
