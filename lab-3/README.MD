@@ -70,3 +70,101 @@ Encrypted Image (CBC Mode): [encrypted_cbc.bmp](https://github.com/Sabbir37/secu
 ### Attachments
 [Click here...](https://github.com/Sabbir37/security-lab/tree/main/lab-3/task-03)
 
+
+
+
+## Task – 4: Padding
+
+### Commands
+
+	# ECB Mode (with AES-128)
+	openssl enc -aes-128-ecb -e -in input_file.txt -out encrypted_ecb.txt -K your_key_here
+	
+	# CBC Mode (with AES-128)
+	openssl enc -aes-128-cbc -e -in input_file.txt -out encrypted_cbc.txt -K your_key_here -iv your_iv_here
+	
+	# CFB Mode (with AES-128)
+	openssl enc -aes-128-cfb -e -in input_file.txt -out encrypted_cfb.txt -K your_key_here -iv your_iv_here
+	
+	# OFB Mode (with AES-128)
+	openssl enc -aes-128-ofb -e -in input_file.txt -out encrypted_ofb.txt -K your_key_here -iv your_iv_here
+
+### Discussion
+
+CBC mode requires padding due to its block-based operation, while ECB, CFB, and OFB modes do not require padding because they operate on streams of data or encrypt each byte independently.
+
+
+## Task - 5: Generating Message Digest
+
+### Commands
+
+	openssl dgst -md5 file.txt
+	openssl dgst -sha1 file.txt
+	openssl dgst -sha256 file.txt
+
+### Generated Hash
+
+	MD5(file.txt)= 87f3b81f4a97107c8d96949edad5cb3c
+	SHA1(file.txt)= 06206c025be2418ae6b7e84ba1a1566fe47decda
+	SHA2-256(file.txt)= b3c774635a9389dba59067d2ac36509cd2642f1fd4770947612151134d2fbd0f
+
+## Task – 6: Keyed hash and HMAC
+
+### Commands
+
+	openssl dgst -md5 -hmac "abcdefg" file.txt
+	openssl dgst -sha1 -hmac "abcdefg" file.txt
+	openssl dgst -sha256 -hmac "abcdefg" file.txt
+
+### HMAC
+
+	HMAC-MD5(file.txt)= ce08588a73ae1c5816be95fec69728ad
+	HMAC-SHA1(file.txt)= 863bfd435d6ea3b0a70a1be21c9c902fa8623a09
+	HMAC-SHA2-256(file.txt)= 825e8c5a2d184a36558cdb0e990785f975903e67fb21b7027f4f16d34bfab59a
+
+
+## Task – 7: Keyed hash and HMAC-II
+
+### Commands & Outputs
+
+	# Generate MD5 hash for the original file
+	>_ md5sum file.txt
+	87f3b81f4a97107c8d96949edad5cb3c  file.txt
+	
+	# Generate SHA256 hash for the original file
+	>_ sha256sum file.txt
+	b3c774635a9389dba59067d2ac36509cd2642f1fd4770947612151134d2fbd0f  file.txt
+	
+	# Generate MD5 hash for the modified file
+	>_ md5sum file.txt
+	e089ee80ff3cd5c2d8be75b7579b8dd7  file.txt
+	
+	# Generate SHA256 hash for the modified file
+	>_ sha256sum file.txt
+	012174b6bd31ef5a7c0e2d8e0746b737445773ef12ab35141861e0db0fb90335  file.txt
+
+### Code to compare H1 & H2
+
+```python
+def count_same_bits(hash1, hash2):
+    # Convert hexadecimal hash values to binary strings
+    bin_hash1 = bin(int(hash1, 16))[2:]
+    bin_hash2 = bin(int(hash2, 16))[2:]
+
+    # Make the binary strings equal in length by padding with zeros
+    max_len = max(len(bin_hash1), len(bin_hash2))
+    bin_hash1 = bin_hash1.zfill(max_len)
+    bin_hash2 = bin_hash2.zfill(max_len)
+
+    # Count the number of same bits
+    same_bits_count = sum(1 for bit1, bit2 in zip(bin_hash1, bin_hash2) if bit1 == bit2)
+    return same_bits_count
+
+# Example usage:
+hash1 = "87f3b81f4a97107c8d96949edad5cb3c"
+hash2 = "e089ee80ff3cd5c2d8be75b7579b8dd7"
+
+same_bits = count_same_bits(hash1, hash2)
+print("Number of same bits:", same_bits)
+```
+
